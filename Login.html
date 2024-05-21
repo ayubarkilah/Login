@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Menghubungkan dengan berkas CSS eksternal -->
+    <link rel="stylesheet" href="Login.css">
+    <!-- Inline CSS untuk beberapa aturan gaya -->
+    <style>
+        .error-message {
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <!-- Gambar latar dan elemen login -->
+        <img src="utama .jpg" class="bg">
+        <img src="astronot login.png" class="astronot">
+        <div class="login">
+            <!-- Judul dan gambar dekoratif -->
+            <h2>Sign In <div><img src="leaf5.png"></div></h2>
+            <!-- Formulir login -->
+            <form id="login-form">
+                <!-- Input username -->
+                <div class="inputBox">
+                    <input type="text" placeholder="Username" name="username" id="username">
+                </div>
+                <!-- Input password -->
+                <div class="inputBox">
+                    <input type="password" placeholder="Password" name="password" id="password">
+                </div>
+                <!-- Tombol untuk mengirimkan formulir -->
+                <div class="inputBox">
+                    <input type="submit" value="Login" id="btn">
+                </div>
+                <!-- Pesan kesalahan -->
+                <span id="error-message" class="error-message"></span>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript untuk validasi login dan pengalihan halaman -->
+    <script>
+        // Menambahkan event listener ke formulir login
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah perilaku bawaan dari pengiriman formulir
+            login(); // Panggil fungsi login saat form login disubmit
+        });
+
+        // Fungsi untuk memeriksa kredensial dan mengarahkan pengguna jika valid
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+
+            // Contoh validasi (ganti dengan logika validasi sesuai kebutuhan Anda)
+            if (username === "admin" && password === "admin123") {
+                // Pengalihan halaman jika kredensial benar
+                window.location.href = "http://127.0.0.1:5500/halamn%20baru.html";
+            } else {
+                // Menampilkan pesan kesalahan jika kredensial salah
+                errorMessage.textContent = "Username atau password salah. Silakan coba lagi.";
+            }
+        }
+    </script>
+</body>
+</html>
